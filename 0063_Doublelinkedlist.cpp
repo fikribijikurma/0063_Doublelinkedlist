@@ -1,3 +1,6 @@
+#include<iostream>
+using namespace std;
+
 struct Node 
 {
 	int noMhs;
@@ -140,5 +143,14 @@ void traverse()
 {
 	if (listEmpty())
 		cout << "\nList is empty" << endl;
+	else {
+		cout << "\nRecords in ascending order of roll number are " << endl;
+		Node* currentNode = START;
+		while (currentNode->next != NULL)
+			currentNode = currentNode->next;
 
+		while (currentNode != NULL) {
+
+		}
+	}
 }
