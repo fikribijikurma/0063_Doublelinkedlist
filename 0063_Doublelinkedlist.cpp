@@ -17,7 +17,7 @@ void addNode()
 	cin >> newNode->name; // Assign value to the data field of the new node
 
 	// insert the new node in the list
-	if (START == NULL || newNode->noMhs <= START->noMhs) 
+	if (START == NULL || newNode->noMhs <= START->noMhs)
 	{ // step 2: insert the new node at the beginning
 
 		if (START != NULL && newNode->noMhs == START->noMhs)
@@ -33,8 +33,8 @@ void addNode()
 		}
 		newNode->prev = NULL; // step 5: make the new node point to NULL
 		START = newNode;     //  step 6: make the new node the first node
-}
-else
+	}
+	else
 	{
 		// insert the new node in the middle or at the end
 		Node* current = START; // step 1.a: start from the first node
@@ -46,4 +46,28 @@ else
 			current = current->next; // step 1.e: move the current to the next node
 		}
 
+		newNode->next = current;  // step 4: make the next field of the new node point to current
+		newNode->prev = previous; // step 5: make the previous field of the new node point to previous
+
+		if (current != NULL)
+		{
+			current->prev = newNode; // step 6: make th previous field of the current node point to the new node
+		}
+
+		if (previous != NULL)
+		{
+			previous->next = newNode; // step 7: make the next field of the previous node point to the new node
+		}
+		else
+		{
+			// if previous is still NULL, it means is now the first node
+			START = newNode;
+		}
+	}
+}
+
+bool search(int rollNo, Node** previous, Node** current)
+{
+
+}
 
