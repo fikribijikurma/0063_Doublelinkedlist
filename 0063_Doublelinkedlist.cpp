@@ -131,4 +131,14 @@ void deleteNode()
 	cout << "\x1b[32mrecord with roll number " << rollNo << "deleted\x1b[0m" << endl;
 }
 
+bool listEmpty()
+{
+	return (START == NULL);
+}
 
+void traverse()
+{
+	if (listEmpty())
+		cout << "\nList is empty" << endl;
+
+}
