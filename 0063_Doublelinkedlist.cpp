@@ -73,7 +73,7 @@ bool search(int rollNo, Node** previous, Node** current)
 {
 	*previous = NULL;
 	*current = START;
-	while (*current != NULL && (*current) - .noMhs != rollNo)
+	while (*current != NULL && (*current) -> noMhs != rollNo)
 	{
 		*previous = *current;
 		*current = (*current)->next;
@@ -150,7 +150,28 @@ void traverse()
 			currentNode = currentNode->next;
 
 		while (currentNode != NULL) {
-
+			cout << currentNode->noMhs << " " << currentNode->name << endl;
+			currentNode = currentNode->prev;
 		}
+	}
+}
+
+void revtraverse()
+{
+	if (listEmpty()) 
+	{
+		cout << "\List is empty" << endl;
+	}
+	Node* prev, * curr;
+	prev = curr = NULL;
+	cout << "\nEnter the roll number of the student whose record you want to search: ";
+	int num;
+	cin >> num;
+	if (search(num, &prev, &curr) == false)
+		cout << "\nRecord not found" << endl;
+	else {
+		cout << "\nRecord not found" << endl;
+		cout << "\Roll number: " << curr->noMhs << endl;
+		cout << "\nName: " << curr->name << endl;
 	}
 }
